@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Promises Demo</title>
+</head>
+<body>
+    <script>
+        var promise1 = new Promise(function(reslove, reject){
+            const a = "this is my string";
+            const b = "this is my string";
+
+            document.write("String 1: "+a+"<br>");
+            document.write("String 2: "+b+"<br>");
+
+            if(a === b){
+                reslove();
+            }else{
+                reject()
+            }
+        });
+
+        promise1.then(function(){
+            document.write("Success: Both the strings are equal."+"<br><br>");
+        })
+        .catch(function(){
+            document.write("Error: Both the strings are not equal."+"<br><br>");
+        });
+
+
+        var promise2 = new Promise(function(reslove, reject){
+            const a = "this is my string";
+            const b = "this is my new string";
+
+            document.write("String 1: "+a+"<br>");
+            document.write("String 2: "+b+"<br>");
+
+            if(a === b){
+                reslove("Success: Both the strings are equal."+"<br><br>");
+            }else{
+                reject("Error: Both the strings are not equal."+"<br><br>")
+            }
+        });
+
+        promise2.then(function(message){
+            document.write(message);
+        })
+        .catch(function(error){
+            document.write(error);
+        });
+    </script>
+</body>
+</html>
